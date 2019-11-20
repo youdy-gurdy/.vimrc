@@ -1,0 +1,105 @@
+snippet     texinit
+abbr        tex template
+options     head
+    \documentclass[a4paper]{jsarticle}
+
+    \usepackage{amsmath,amssymb,amsthm}
+    \usepackage{cases}
+    \usepackage{comment}
+
+    \usepackage{color}
+    \usepackage[dvipdfmx]{graphicx}
+
+
+
+    \setlength{\oddsidemargin}{0.0 in}
+    \setlength{\evensidemargin}{-0.0 in}
+    \setlength{\topmargin}{-0.6 in}
+    \setlength{\textwidth}{6.5 in}
+    \setlength{\textheight}{8.5 in}
+    \setlength{\headsep}{0.75 in}
+    \setlength{\parindent}{0 in}
+    \setlength{\parskip}{0.1 in}
+
+    %local
+    \newtheorem{thm}{Theorem}
+    \newtheorem{prop}{Proposition}
+    \newtheorem{exam}{Example}
+    \newtheorem{rem}{Remark}
+    \newtheorem{fact}{Fact}
+    \newtheorem{prob}{Problem}
+    \newtheorem{lem}{Lemma}
+    \newtheorem{de}{Definition}
+
+
+    %newcommand
+    \newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+    %\left\{ x \in X \relmiddle| hogehoge \right\}
+    \newcommand{\ds}{\displaystyle}
+    \newcommand{\dash}{{\rm \mathchar`- }}
+
+
+    %よく使う記号
+    \newcommand{\mrr}{\mathbb{R}}
+    %local
+    \newcommand{\lip}{\text{1$-$Lip}}
+
+
+    %(i),(ii),(iii),(iv)
+    %http://www-math.ias.tokushima-u.ac.jp/~ono/data/ローマ数字.pdf
+    \newcommand{\ri}{\rm (\hspace{.18em}i\hspace{.18em})}
+    \newcommand{\rii}{\rm(\hspace{.08em}ii\hspace{.08em})}
+    \newcommand{\riii}{\rm(i\hspace{-.08em}i\hspace{-.08em}i)}
+    \newcommand{\riv}{\rm(i\hspace{-.08em}v\hspace{-.06em})}
+    \newcommand{\rv}{\rm(\hspace{.06em}v\hspace{.06em})}
+    \newcommand{\rvi}{\rm(\hspace{-.06em}v\hspace{-.08em}i)}
+
+
+    %行間調整　\renewcommand{\baselinestretch}{倍率}
+    \renewcommand{\baselinestretch}{1.05}
+
+    %description環境　見出し直後の改行文に入る空白制御
+    \makeatletter
+    \newlength{\deslistparindent}
+    \setlength{\deslistparindent}{\listparindent}
+    \addtolength{\deslistparindent}{-20pt}%標準よりの下げ量
+    \let\@deslist\list
+    \renewenvironment{description}{%
+        \@deslist{}{%
+            \labelwidth=\leftmargin
+            \listparindent=\deslistparindent
+            \labelsep=1zw
+            \advance \labelwidth by -\labelsep
+    \let \makelabel=\descriptionlabel}}{\endlist}
+    \makeatother
+
+
+
+    %%%%%%%%%%%タイトル%%%%%%%%%%%%%%
+    \title{タイトル}
+
+    \author{名前}
+    \date{}
+    {%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{document}
+
+    \maketitle
+    \newpage
+
+    \begin{thebibliography}{99}
+        \bibitem{Le Gall}
+        Le Gall,J.-F.:Brownian Motion, Martingales, and Stochastic Calculus, GTM274, Springer, Switzerland(2016)
+    \end{thebibliography}
+
+    \end{document}
+
+snippet set
+    \left\{ x \in X \relmiddle| hogehoge \right\}
+
+
+snippet lsigma
+    \sigma(t,X^{x,y}_t,Y^y_t)
+
+snippet lb
+    b(t,X^{x,y}_t,Y^y_t)
