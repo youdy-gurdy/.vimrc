@@ -65,7 +65,9 @@ hook_add = '''
 repo = 'jiangmiao/auto-pairs'
 on_ft = ['cpp','python','tex']
 hook_add = '''
-    let g:AutoPairs = 
+    let g:AutoPairsShortcutFastWrap = '<C-e>'
+    let g:AutoPairsShortcutToggle = '∆'
+    let g:AutoPairs =
     \ {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`','$':'$'}
 '''
 
